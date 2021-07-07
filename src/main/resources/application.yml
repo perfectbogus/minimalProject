@@ -14,3 +14,5 @@ spring:
     console:
       enabled: true
       path: /database-console
+server:
+  port: 80
