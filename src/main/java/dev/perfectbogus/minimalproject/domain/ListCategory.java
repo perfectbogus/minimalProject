@@ -1,8 +1,6 @@
 package dev.perfectbogus.minimalproject.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,15 +9,23 @@ import javax.persistence.*;
 @Table(name = "LIST_CATEGORY")
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@IdClass(ListCategoryId.class)
 public class ListCategory {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long id;
+    @Column(name = "PAYLOAD_ID")
+    private Long payloadId;
 
-    @Column(name = "NAME")
-    private String name;
+    @Id
+    @Column(name = "ACCOUNT_ID")
+    private Long accountId;
+
+    @Id
+    @Column(name = "FAMILY_ID")
+    private Long familyId;
+
+    @Id
+    @Column(name = "CATEGORY_ID")
+    private Long categoryId;
+
 }

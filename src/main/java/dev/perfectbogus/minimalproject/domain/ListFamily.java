@@ -37,4 +37,6 @@ public class ListFamily {
     @JoinColumn(name = "FAMILY_ID", insertable = false, updatable = false)
     private Family familyEntity;
 
+
+
 }
