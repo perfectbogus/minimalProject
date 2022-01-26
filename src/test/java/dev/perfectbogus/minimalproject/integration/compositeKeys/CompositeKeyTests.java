@@ -18,15 +18,6 @@ public class CompositeKeyTests {
     @Autowired
     private ListFamilyRepository listFamilyRepository;
 
-    @Autowired
-    private FamilyRepository familyRepository;
-
-    @Autowired
-    private AccountRepository accountRepository;
-
-    @Autowired
-    private PayloadRepository payloadRepository;
-
     @Test
     public void simpleTest(){
 
@@ -37,6 +28,8 @@ public class CompositeKeyTests {
         System.out.println(lFamily.getFamilyEntity().getName());
         System.out.println(lFamily.getAccountEntity().getName());
         System.out.println(lFamily.getPayloadEntity().getName());
+
+        lFamily.getListCategorySet().forEach(System.out::println);
         //payload1.getFamilySet().forEach(System.out::println);
 
 //        Family newFamily = new Family();

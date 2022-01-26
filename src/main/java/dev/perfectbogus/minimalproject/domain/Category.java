@@ -3,16 +3,16 @@ package dev.perfectbogus.minimalproject.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "CATEGORY")
 @Setter
 @Getter
+@ToString
 public class Category {
 
     @Id
@@ -21,5 +21,9 @@ public class Category {
 
     @Column(name = "NAME")
     private String name;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "category")
+    private Set<ListCategory> listCategory;
 
 }

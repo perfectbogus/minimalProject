@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "LIST_FAMILY")
@@ -37,6 +38,7 @@ public class ListFamily {
     @JoinColumn(name = "FAMILY_ID", insertable = false, updatable = false)
     private Family familyEntity;
 
-
+    @OneToMany(mappedBy = "listFamily", fetch = FetchType.EAGER)
+    private Set<ListCategory> listCategorySet;
 
 }

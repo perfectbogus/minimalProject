@@ -2,6 +2,7 @@ package dev.perfectbogus.minimalproject.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @IdClass(ListCategoryId.class)
+@ToString
 public class ListCategory {
 
     @Id
@@ -27,5 +29,18 @@ public class ListCategory {
     @Id
     @Column(name = "CATEGORY_ID")
     private Long categoryId;
+
+    @ToString.Exclude
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "PAYLOAD_ID", updatable = false, insertable = false),
+            @JoinColumn(name = "ACCOUNT_ID", updatable = false, insertable = false),
+            @JoinColumn(name = "FAMILY_ID", updatable = false, insertable = false)
+    })
+    private ListFamily listFamily;
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID", updatable = false, insertable = false)
+    private Category category;
 
 }
