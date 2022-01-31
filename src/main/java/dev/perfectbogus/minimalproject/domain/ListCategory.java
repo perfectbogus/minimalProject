@@ -15,32 +15,19 @@ import javax.persistence.*;
 public class ListCategory {
 
     @Id
-    @Column(name = "PAYLOAD_ID")
-    private Long payloadId;
-
-    @Id
-    @Column(name = "ACCOUNT_ID")
-    private Long accountId;
-
-    @Id
-    @Column(name = "FAMILY_ID")
-    private Long familyId;
-
-    @Id
-    @Column(name = "CATEGORY_ID")
-    private Long categoryId;
-
-    @ToString.Exclude
     @ManyToOne
     @JoinColumns({
-            @JoinColumn(name = "PAYLOAD_ID", updatable = false, insertable = false),
-            @JoinColumn(name = "ACCOUNT_ID", updatable = false, insertable = false),
-            @JoinColumn(name = "FAMILY_ID", updatable = false, insertable = false)
+            @JoinColumn(name = "PAYLOAD_ID"),
+            @JoinColumn(name = "ACCOUNT_ID"),
+            @JoinColumn(name = "FAMILY_ID")
     })
-    private ListFamily listFamily;
+    private ListFamily listFamilyEntity;
 
+    @Id
     @ManyToOne
-    @JoinColumn(name = "CATEGORY_ID", updatable = false, insertable = false)
-    private Category category;
+    @JoinColumn(name = "CATEGORY_ID", insertable = false, updatable = false)
+    private Category categoryEntity;
+
+
 
 }

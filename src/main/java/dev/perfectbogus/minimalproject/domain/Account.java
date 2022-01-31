@@ -2,6 +2,7 @@ package dev.perfectbogus.minimalproject.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Set;
 @Table(name = "ACCOUNT")
 @Getter
 @Setter
+@ToString
 public class Account {
 
     @Id
@@ -21,6 +23,7 @@ public class Account {
     @Column(name = "NAME")
     private String name;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "accountEntity")
     private List<ListFamily> listFamilyEntities;
 }

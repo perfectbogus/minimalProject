@@ -6,12 +6,12 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "PAYLOAD")
 @Getter
 @Setter
+@ToString
 public class Payload {
 
     @Id
@@ -22,6 +22,7 @@ public class Payload {
     @Column(name = "NAME")
     private String name;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "payloadEntity")
     private List<ListFamily> listFamilyEntities;
 

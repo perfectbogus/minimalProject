@@ -23,7 +23,7 @@ public class Category {
     private String name;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "categoryEntity")
     private Set<ListCategory> listCategory;
 
 }

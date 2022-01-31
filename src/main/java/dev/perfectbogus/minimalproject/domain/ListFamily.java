@@ -2,6 +2,7 @@ package dev.perfectbogus.minimalproject.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,34 +12,29 @@ import java.util.Set;
 @Getter
 @Setter
 @IdClass(ListFamilyId.class)
+@ToString
 public class ListFamily {
 
     @Id
-    @Column(name = "PAYLOAD_ID")
-    private Long payloadId;
+    @ManyToOne
+    @JoinColumn(name = "PAYLOAD_ID")
+    private Payload payloadEntity;
+
     @Id
-    @Column(name = "ACCOUNT_ID")
-    private Long accountId;
+    @ManyToOne
+    @JoinColumn(name = "ACCOUNT_ID")
+    private Account accountEntity;
+
     @Id
-    @Column(name = "FAMILY_ID")
-    private Long familyId;
+    @ManyToOne
+    @JoinColumn(name = "FAMILY_ID")
+    private Family familyEntity;
 
     @Column(name = "NAME")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "PAYLOAD_ID", insertable = false, updatable = false)
-    private Payload payloadEntity;
-
-    @ManyToOne
-    @JoinColumn(name = "ACCOUNT_ID", insertable = false, updatable = false)
-    private Account accountEntity;
-
-    @ManyToOne
-    @JoinColumn(name = "FAMILY_ID", insertable = false, updatable = false)
-    private Family familyEntity;
-
-    @OneToMany(mappedBy = "listFamily", fetch = FetchType.EAGER)
-    private Set<ListCategory> listCategorySet;
+    @ToString.Exclude
+    @OneToMany(mappedBy = "listFamilyEntity", fetch = FetchType.EAGER)
+    private Set<ListCategory> listCategoryEntities;
 
 }

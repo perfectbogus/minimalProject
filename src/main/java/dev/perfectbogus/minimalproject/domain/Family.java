@@ -1,9 +1,6 @@
 package dev.perfectbogus.minimalproject.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString
 public class Family {
 
     @Id
@@ -24,6 +22,7 @@ public class Family {
     @Column(name = "NAME")
     private String name;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "familyEntity")
     private List<ListFamily> listFamilyEntities;
 

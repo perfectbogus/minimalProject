@@ -11,9 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class ListCategoryId implements Serializable {
 
-    private Long payloadId;
-    private Long accountId;
-    private Long familyId;
-    private Long categoryId;
+    private ListFamily listFamilyEntity;
+    private Category categoryEntity;
 
 }

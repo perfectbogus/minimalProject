@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ListFamilyRepository extends JpaRepository<ListFamily, ListFamilyId> {
 
-    ListFamily getListFamilyByAccountIdAndPayloadIdAndFamilyId(Long accountId, Long payloadId, Long familyId);
+    ListFamily getListFamilyByAccountEntity_IdAndPayloadEntity_IdAndFamilyEntity_Id(Long accountId, Long payloadId, Long familyId);
 
 }
 

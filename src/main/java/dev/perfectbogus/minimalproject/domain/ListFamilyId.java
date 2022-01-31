@@ -10,8 +10,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class ListFamilyId implements Serializable {
 
-    private Long payloadId;
-    private Long accountId;
-    private Long familyId;
+    private Account accountEntity;
+    private Payload payloadEntity;
+    private Family familyEntity;
 
 }
